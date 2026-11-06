@@ -3,6 +3,8 @@
 Classless CSS for a retro phosphor-terminal look, built on [modern-normalize](https://github.com/sindresorhus/modern-normalize).
 Write plain semantic HTML — no classes needed.
 
+**Demo:** https://manybugsdev.github.io/phosphor.css/
+
 ## Usage
 
 ```html
