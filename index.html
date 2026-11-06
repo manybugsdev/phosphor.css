@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>phosphor.css demo</title>
+	<link rel="stylesheet" href="dist/phosphor.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#typography">typography</a></li>
+				<li><a href="#lists">lists</a></li>
+				<li><a href="#code">code</a></li>
+				<li><a href="#table">table</a></li>
+				<li><a href="#forms">forms</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<h1>phosphor.css</h1>
+		<p>Classless CSS for a phosphor CRT look. Drop in one stylesheet, write plain HTML. Built on <a href="https://github.com/sindresorhus/modern-normalize">modern-normalize</a>.</p>
+		<p>
+			Theme:
+			<button type="button" data-set-theme="green">green</button>
+			<button type="button" data-set-theme="amber">amber</button>
+			<button type="button" data-set-theme="white">white</button>
+		</p>
+
+		<section id="typography">
+			<h2>Typography</h2>
+			<p>Text with <strong>strong</strong>, <em>emphasis</em>, <mark>mark</mark>, <code>inline code</code>, <kbd>Ctrl</kbd>+<kbd>C</kbd>, <small>small</small>, <del>deleted</del>, <ins>inserted</ins>, <abbr title="Cathode Ray Tube">CRT</abbr>, H<sub>2</sub>O and E=mc<sup>2</sup>.</p>
+			<h3>Heading level 3</h3>
+			<h4>Heading level 4</h4>
+			<blockquote>
+				<p>The best way to predict the future is to invent it.</p>
+			</blockquote>
+			<hr>
+		</section>
+
+		<section id="lists">
+			<h2>Lists</h2>
+			<ul>
+				<li>Unordered item</li>
+				<li>Another item
+					<ul>
+						<li>Nested item</li>
+					</ul>
+				</li>
+			</ul>
+			<ol>
+				<li>First</li>
+				<li>Second</li>
+			</ol>
+			<dl>
+				<dt>TTY</dt>
+				<dd>Teletypewriter.</dd>
+				<dt>VT100</dt>
+				<dd>A video terminal introduced by DEC in 1978.</dd>
+			</dl>
+		</section>
+
+		<section id="code">
+			<h2>Code</h2>
+			<pre><kbd>npm install phosphor.css</kbd>
+<samp>added 2 packages in 0.4s</samp></pre>
+			<pre><code>const hello = (name) =&gt; {
+	console.log(`hello, ${name}`);
+};</code></pre>
+			<details>
+				<summary>Show more</summary>
+				<p>Hidden content behind a summary.</p>
+			</details>
+		</section>
+
+		<section id="table">
+			<h2>Table</h2>
+			<figure>
+				<table>
+					<caption>Process list</caption>
+					<thead>
+						<tr><th>PID</th><th>User</th><th>CPU%</th><th>Command</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>1</td><td>root</td><td>0.0</td><td>init</td></tr>
+						<tr><td>412</td><td>suei</td><td>12.4</td><td>vim</td></tr>
+						<tr><td>1337</td><td>suei</td><td>3.1</td><td>node</td></tr>
+					</tbody>
+				</table>
+			</figure>
+		</section>
+
+		<section id="forms">
+			<h2>Forms</h2>
+			<form onsubmit="event.preventDefault()">
+				<fieldset>
+					<legend>Login</legend>
+					<label for="user">Username</label>
+					<input id="user" type="text" placeholder="guest" required>
+					<label for="pass">Password</label>
+					<input id="pass" type="password" placeholder="********">
+					<label for="shell">Shell</label>
+					<select id="shell">
+						<option>bash</option>
+						<option>zsh</option>
+						<option>fish</option>
+					</select>
+					<label for="motd">Message</label>
+					<textarea id="motd" placeholder="Type here..."></textarea>
+					<label><input type="checkbox" checked> Remember me</label>
+					<label><input type="radio" name="mode" checked> Interactive</label>
+					<label><input type="radio" name="mode"> Batch</label>
+				</fieldset>
+				<label for="prog">Loading</label>
+				<progress id="prog" value="62" max="100">62%</progress>
+				<button type="submit">Connect</button>
+				<button type="reset">Reset</button>
+				<button type="button" disabled>Disabled</button>
+			</form>
+		</section>
+
+		<figure>
+			<img src="https://picsum.photos/seed/terminal/640/300" alt="Sample image" width="640" height="300">
+			<figcaption>Images are tinted to the phosphor color.</figcaption>
+		</figure>
+	</main>
+
+	<footer>
+		<p>MIT License</p>
+	</footer>
+
+	<script>
+		document.querySelectorAll('[data-set-theme]').forEach((b) =>
+			b.addEventListener('click', () => {
+				document.documentElement.dataset.theme = b.dataset.setTheme;
+			})
+		);
+	</script>
+</body>
+</html>

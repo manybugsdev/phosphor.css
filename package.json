@@ -1,0 +1,35 @@
+{
+  "name": "phosphor.css",
+  "version": "0.1.0",
+  "description": "Classless retro phosphor-terminal CSS built on modern-normalize",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/phosphor.css",
+  "style": "dist/phosphor.css",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "keywords": [
+    "css",
+    "classless",
+    "terminal",
+    "retro",
+    "crt"
+  ],
+  "devDependencies": {
+    "modern-normalize": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manybugsdev/phosphor.css.git"
+  },
+  "homepage": "https://github.com/manybugsdev/phosphor.css",
+  "bugs": {
+    "url": "https://github.com/manybugsdev/phosphor.css/issues"
+  },
+  "unpkg": "dist/phosphor.min.css",
+  "jsdelivr": "dist/phosphor.min.css"
+}
