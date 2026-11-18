@@ -13,20 +13,22 @@ Write plain semantic HTML — no classes needed.
 
 modern-normalize is bundled into `dist/`, so one stylesheet is all you need.
 
-## Themes
-
-```html
-<html data-theme="amber">  <!-- green (default) | amber | white -->
-```
-
 ## Customize
 
-Override the custom properties on `:root`:
+Set `color` and `background-color` on `html`. Every other color
+(dim text, borders, accent, glow, highlights) is derived from `currentColor`.
+
+```css
+html {
+  color: #ffb000;              /* amber */
+  background-color: #0d0800;
+}
+```
+
+Other custom properties:
 
 ```css
 :root {
-  --term-fg: #33ff66;          /* phosphor color */
-  --term-bg: #050a06;
   --term-width: 80ch;          /* max content width */
   --term-scanline-opacity: 0.12;
   --term-font: 'VT323', ui-monospace, monospace;
@@ -46,7 +48,7 @@ Override the custom properties on `:root`:
 - `[link]`-style nav, `[+]/[-]` details, `>` blockquotes
 - Shell prompt: `<pre><kbd>cmd</kbd></pre>` renders as `$ cmd`
 - Forms, tables, progress bars, dialogs
-- Images tinted to the phosphor color
+- Images shown in grayscale
 - Print styles without CRT effects
 
 ## Development

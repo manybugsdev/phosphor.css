@@ -218,24 +218,27 @@ summary {
 phosphor.css — retro terminal theme (classless)
 =================================================
 Applied on top of modern-normalize. Style plain HTML elements only.
-Customize via the custom properties below, or set
-<html data-theme="amber"> / "white" / "green".
+Recolor by setting `color` and `background-color` on <html>; every other
+color is derived from `currentColor`, so nothing else needs overriding.
 */
 
 /*
 Tokens
 ======
+Internal shorthands. Colors resolve against `currentColor` where used.
 */
 
 :root {
-	--term-bg: #050a06;
-	--term-bg-alt: #0b160d;
-	--term-fg: #33ff66;
-	--term-fg-dim: #1f9e40;
-	--term-fg-faint: #145c26;
-	--term-accent: #b3ffc6;
+	--term-fg: currentColor;
+	--term-fg-dim: color-mix(in srgb, currentColor 60%, transparent);
+	--term-fg-faint: color-mix(in srgb, currentColor 33%, transparent);
+	--term-accent: color-mix(in srgb, currentColor 40%, #fff);
+	--term-bg-alt: color-mix(in srgb, currentColor 6%, transparent);
+	--term-highlight: color-mix(in srgb, currentColor 30%, transparent);
+	--term-glow:
+		0 0 2px color-mix(in srgb, currentColor 65%, transparent),
+		0 0 8px color-mix(in srgb, currentColor 25%, transparent);
 	--term-error: #ff5555;
-	--term-glow: 0 0 2px rgb(51 255 102 / 0.65), 0 0 8px rgb(51 255 102 / 0.25);
 
 	--term-font:
 		'VT323',
@@ -256,26 +259,6 @@ Tokens
 	color-scheme: dark;
 }
 
-:root[data-theme='amber'] {
-	--term-bg: #0d0800;
-	--term-bg-alt: #1a1103;
-	--term-fg: #ffb000;
-	--term-fg-dim: #b37a00;
-	--term-fg-faint: #5c3f00;
-	--term-accent: #ffe0a3;
-	--term-glow: 0 0 2px rgb(255 176 0 / 0.65), 0 0 8px rgb(255 176 0 / 0.25);
-}
-
-:root[data-theme='white'] {
-	--term-bg: #0a0a0c;
-	--term-bg-alt: #16161a;
-	--term-fg: #e6e6e6;
-	--term-fg-dim: #9a9a9a;
-	--term-fg-faint: #4a4a4a;
-	--term-accent: #ffffff;
-	--term-glow: 0 0 2px rgb(230 230 230 / 0.5), 0 0 8px rgb(230 230 230 / 0.15);
-}
-
 /*
 Document
 ========
@@ -285,8 +268,8 @@ html {
 	font-family: var(--term-font);
 	font-size: var(--term-font-size);
 	line-height: var(--term-line-height);
-	background: var(--term-bg);
-	color: var(--term-fg);
+	background-color: #050a06;
+	color: #33ff66;
 	accent-color: var(--term-fg);
 	caret-color: var(--term-fg);
 	-webkit-font-smoothing: antialiased;
@@ -318,9 +301,7 @@ body::before {
 }
 
 ::selection {
-	background: var(--term-fg);
-	color: var(--term-bg);
-	text-shadow: none;
+	background: var(--term-highlight);
 }
 
 :focus-visible {
@@ -445,10 +426,8 @@ a {
 }
 
 a:hover {
-	background: var(--term-fg);
-	color: var(--term-bg);
+	background: var(--term-highlight);
 	text-decoration: none;
-	text-shadow: none;
 }
 
 a:visited {
@@ -468,9 +447,8 @@ i {
 }
 
 mark {
-	background: var(--term-fg);
-	color: var(--term-bg);
-	text-shadow: none;
+	background: var(--term-highlight);
+	color: inherit;
 	padding-inline: 0.25ch;
 }
 
@@ -630,15 +608,7 @@ iframe {
 img,
 video {
 	border: 1px solid var(--term-fg-faint);
-	filter: grayscale(1) contrast(1.1) brightness(0.9) sepia(1) hue-rotate(70deg) saturate(3);
-}
-
-:root[data-theme='amber'] :is(img, video) {
-	filter: grayscale(1) contrast(1.1) brightness(0.9) sepia(1) saturate(3);
-}
-
-:root[data-theme='white'] :is(img, video) {
-	filter: grayscale(1) contrast(1.1);
+	filter: grayscale(1) contrast(1.1) brightness(0.9);
 }
 
 figure {
@@ -723,7 +693,7 @@ textarea {
 	width: 100%;
 	margin-bottom: 1rem;
 	padding: 0.35rem 1ch;
-	background: var(--term-bg);
+	background: transparent;
 	color: var(--term-fg);
 	border: 1px solid var(--term-fg-dim);
 	border-radius: 0;
@@ -804,9 +774,7 @@ input[type='button']:hover,
 input[type='submit']:hover,
 input[type='reset']:hover,
 ::file-selector-button:hover {
-	background: var(--term-fg);
-	color: var(--term-bg);
-	text-shadow: none;
+	background: var(--term-highlight);
 }
 
 button:active,
@@ -897,10 +865,16 @@ details[open] > summary::before {
 dialog {
 	max-width: min(60ch, 90vw);
 	padding: 1rem 2ch;
-	background: var(--term-bg);
+	background-color: inherit;
 	color: var(--term-fg);
 	border: 1px double var(--term-fg);
-	box-shadow: 0 0 0 3px var(--term-bg), 0 0 0 4px var(--term-fg-dim);
+	outline: 1px solid var(--term-fg-dim);
+	outline-offset: 3px;
+}
+
+/* Dialogs need an opaque background: pass the page background down to them. */
+:where(:has(dialog)) {
+	background-color: inherit;
 }
 
 dialog::backdrop {

@@ -23,10 +23,8 @@
 		<h1>phosphor.css</h1>
 		<p>Classless CSS for a phosphor CRT look. Drop in one stylesheet, write plain HTML. Built on <a href="https://github.com/sindresorhus/modern-normalize">modern-normalize</a>.</p>
 		<p>
-			Theme:
-			<button type="button" data-set-theme="green">green</button>
-			<button type="button" data-set-theme="amber">amber</button>
-			<button type="button" data-set-theme="white">white</button>
+			<label>Background <input type="color" data-prop="background-color" value="#050a06"></label>
+			<label>Foreground <input type="color" data-prop="color" value="#33ff66"></label>
 		</p>
 
 		<section id="typography">
@@ -123,7 +121,7 @@
 
 		<figure>
 			<img src="https://picsum.photos/seed/terminal/640/300" alt="Sample image" width="640" height="300">
-			<figcaption>Images are tinted to the phosphor color.</figcaption>
+			<figcaption>Images are shown in grayscale.</figcaption>
 		</figure>
 	</main>
 
@@ -132,9 +130,9 @@
 	</footer>
 
 	<script>
-		document.querySelectorAll('[data-set-theme]').forEach((b) =>
-			b.addEventListener('click', () => {
-				document.documentElement.dataset.theme = b.dataset.setTheme;
+		document.querySelectorAll('[data-prop]').forEach((input) =>
+			input.addEventListener('input', () => {
+				document.documentElement.style.setProperty(input.dataset.prop, input.value);
 			})
 		);
 	</script>
