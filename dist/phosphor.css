@@ -252,7 +252,6 @@ Tokens
 	--term-gap: 1.5rem;
 
 	--term-scanline-opacity: 0.12;
-	--term-cursor: '█';
 
 	color-scheme: dark;
 }
@@ -402,11 +401,9 @@ h1 {
 	letter-spacing: 0.05em;
 }
 
-/* Blinking block cursor after the page title. */
-h1::after {
-	content: var(--term-cursor);
-	margin-left: 0.25ch;
-	animation: term-blink 1.06s steps(1) infinite;
+h1::before {
+	content: '# ';
+	color: var(--term-fg-dim);
 }
 
 h2::before {
@@ -915,12 +912,6 @@ Animation
 =========
 */
 
-@keyframes term-blink {
-	50% {
-		opacity: 0;
-	}
-}
-
 @keyframes term-flicker {
 	0%,
 	100% {
@@ -937,8 +928,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	body,
-	h1::after {
+	body {
 		animation: none;
 	}
 }
@@ -958,8 +948,7 @@ Print: drop the CRT effects, keep the monospace look.
 		animation: none;
 	}
 
-	body::before,
-	h1::after {
+	body::before {
 		content: none;
 	}
 

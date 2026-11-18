@@ -42,7 +42,7 @@ Override the custom properties on `:root`:
 ## Features
 
 - CRT scanlines, vignette, glow and subtle flicker (disabled with `prefers-reduced-motion`)
-- Blinking cursor after `<h1>`, `##`-style heading prefixes
+- Markdown-style heading prefixes (`#`, `##`, `###`, …)
 - `[link]`-style nav, `[+]/[-]` details, `>` blockquotes
 - Shell prompt: `<pre><kbd>cmd</kbd></pre>` renders as `$ cmd`
 - Forms, tables, progress bars, dialogs
