@@ -220,6 +220,7 @@ phosphor.css — retro terminal theme (classless)
 Applied on top of modern-normalize. Style plain HTML elements only.
 Recolor by setting `color` and `background-color` on <html>; every other
 color is derived from `currentColor`, so nothing else needs overriding.
+Light and dark follow `color-scheme` on <html> (default: the OS setting).
 */
 
 /*
@@ -232,12 +233,15 @@ Internal shorthands. Colors resolve against `currentColor` where used.
 	--term-fg: currentColor;
 	--term-fg-dim: color-mix(in srgb, currentColor 60%, transparent);
 	--term-fg-faint: color-mix(in srgb, currentColor 33%, transparent);
-	--term-accent: color-mix(in srgb, currentColor 40%, #fff);
+	--term-accent: light-dark(
+		color-mix(in srgb, currentColor 70%, #000),
+		color-mix(in srgb, currentColor 40%, #fff)
+	);
 	--term-bg-alt: color-mix(in srgb, currentColor 6%, transparent);
 	--term-highlight: color-mix(in srgb, currentColor 30%, transparent);
 	--term-glow:
-		0 0 2px color-mix(in srgb, currentColor 65%, transparent),
-		0 0 8px color-mix(in srgb, currentColor 25%, transparent);
+		0 0 2px light-dark(transparent, color-mix(in srgb, currentColor 65%, transparent)),
+		0 0 8px light-dark(transparent, color-mix(in srgb, currentColor 25%, transparent));
 	--term-error: #ff5555;
 
 	--term-font:
@@ -255,8 +259,6 @@ Internal shorthands. Colors resolve against `currentColor` where used.
 	--term-gap: 1.5rem;
 
 	--term-scanline-opacity: 0.12;
-
-	color-scheme: dark;
 }
 
 /*
@@ -268,8 +270,9 @@ html {
 	font-family: var(--term-font);
 	font-size: var(--term-font-size);
 	line-height: var(--term-line-height);
-	background-color: #050a06;
-	color: #33ff66;
+	color-scheme: light dark;
+	background-color: light-dark(#f2f0e6, #050a06);
+	color: light-dark(#1b6630, #33ff66);
 	accent-color: var(--term-fg);
 	caret-color: var(--term-fg);
 	-webkit-font-smoothing: antialiased;
@@ -294,10 +297,14 @@ body::before {
 	background:
 		repeating-linear-gradient(
 			to bottom,
-			rgb(0 0 0 / var(--term-scanline-opacity)) 0 1px,
+			light-dark(
+					rgb(0 0 0 / calc(var(--term-scanline-opacity) / 3)),
+					rgb(0 0 0 / var(--term-scanline-opacity))
+				)
+				0 1px,
 			transparent 1px 3px
 		),
-		radial-gradient(ellipse at center, transparent 60%, rgb(0 0 0 / 0.45) 100%);
+		radial-gradient(ellipse at center, transparent 60%, light-dark(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.45)) 100%);
 }
 
 ::selection {
@@ -913,6 +920,7 @@ Print: drop the CRT effects, keep the monospace look.
 
 @media print {
 	html {
+		color-scheme: light;
 		background: #fff;
 		color: #000;
 	}

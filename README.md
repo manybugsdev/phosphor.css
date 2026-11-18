@@ -25,6 +25,26 @@ html {
 }
 ```
 
+### Light and dark
+
+By default phosphor.css follows the OS setting (`color-scheme: light dark`):
+green-on-black in dark mode, dark green on paper in light mode.
+Use `light-dark()` to set your own pair, or pin one scheme with `color-scheme`:
+
+```css
+html {
+  color: light-dark(#7a4a00, #ffb000);
+  background-color: light-dark(#f5efe2, #0d0800);
+}
+
+html {
+  color-scheme: dark;          /* always dark */
+}
+```
+
+If you set plain (non-`light-dark()`) colors, also set `color-scheme` to
+match them, since accents and glow are tuned per scheme.
+
 Other custom properties:
 
 ```css
@@ -43,6 +63,7 @@ Other custom properties:
 
 ## Features
 
+- Light and dark schemes (follows the OS by default)
 - CRT scanlines, vignette, glow and subtle flicker (disabled with `prefers-reduced-motion`)
 - Markdown-style heading prefixes (`#`, `##`, `###`, …)
 - `[link]`-style nav, `[+]/[-]` details, `>` blockquotes

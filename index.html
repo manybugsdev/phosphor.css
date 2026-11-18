@@ -23,8 +23,13 @@
 		<h1>phosphor.css</h1>
 		<p>Classless CSS for a phosphor CRT look. Drop in one stylesheet, write plain HTML. Built on <a href="https://github.com/sindresorhus/modern-normalize">modern-normalize</a>.</p>
 		<p>
-			<label>Background <input type="color" data-prop="background-color" value="#050a06"></label>
-			<label>Foreground <input type="color" data-prop="color" value="#33ff66"></label>
+			Scheme:
+			<label><input type="radio" name="scheme" value="light dark" checked> auto</label>
+			<label><input type="radio" name="scheme" value="light"> light</label>
+			<label><input type="radio" name="scheme" value="dark"> dark</label>
+			<br>
+			<label>Background <input type="color" data-prop="background-color"></label>
+			<label>Foreground <input type="color" data-prop="color"></label>
 		</p>
 
 		<section id="typography">
@@ -130,11 +135,27 @@
 	</footer>
 
 	<script>
-		document.querySelectorAll('[data-prop]').forEach((input) =>
-			input.addEventListener('input', () => {
-				document.documentElement.style.setProperty(input.dataset.prop, input.value);
+		const root = document.documentElement;
+		const pickers = document.querySelectorAll('[data-prop]');
+		const toHex = (rgb) =>
+			'#' + rgb.match(/\d+/g).slice(0, 3).map((n) => Number(n).toString(16).padStart(2, '0')).join('');
+		const syncPickers = () =>
+			pickers.forEach((input) => {
+				input.value = toHex(getComputedStyle(root).getPropertyValue(input.dataset.prop));
+			});
+
+		pickers.forEach((input) =>
+			input.addEventListener('input', () => root.style.setProperty(input.dataset.prop, input.value))
+		);
+		document.querySelectorAll('[name="scheme"]').forEach((radio) =>
+			radio.addEventListener('change', () => {
+				root.style.cssText = '';
+				root.style.colorScheme = radio.value;
+				syncPickers();
 			})
 		);
+		matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncPickers);
+		syncPickers();
 	</script>
 </body>
 </html>
