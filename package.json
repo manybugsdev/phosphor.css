@@ -1,11 +1,11 @@
 {
-  "name": "cathode.css",
+  "name": "termalize.css",
   "version": "0.1.0",
   "description": "Classless retro phosphor-terminal CSS built on modern-normalize",
   "license": "MIT",
   "type": "module",
-  "main": "dist/cathode.css",
-  "style": "dist/cathode.css",
+  "main": "dist/termalize.css",
+  "style": "dist/termalize.css",
   "files": [
     "dist"
   ],
@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manybugsdev/cathode.css.git"
+    "url": "git+https://github.com/manybugsdev/termalize.css.git"
   },
-  "homepage": "https://manybugsdev.github.io/cathode.css/",
+  "homepage": "https://manybugsdev.github.io/termalize.css/",
   "bugs": {
-    "url": "https://github.com/manybugsdev/cathode.css/issues"
+    "url": "https://github.com/manybugsdev/termalize.css/issues"
   },
-  "unpkg": "dist/cathode.min.css",
-  "jsdelivr": "dist/cathode.min.css"
+  "unpkg": "dist/termalize.min.css",
+  "jsdelivr": "dist/termalize.min.css"
 }

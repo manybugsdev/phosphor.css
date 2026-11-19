@@ -1,14 +1,14 @@
-# cathode.css
+# termalize.css
 
 Classless CSS for a retro phosphor-terminal look, built on [modern-normalize](https://github.com/sindresorhus/modern-normalize).
 Write plain semantic HTML — no classes needed.
 
-**Demo:** https://manybugsdev.github.io/cathode.css/
+**Demo:** https://manybugsdev.github.io/termalize.css/
 
 ## Usage
 
 ```html
-<link rel="stylesheet" href="dist/cathode.min.css">
+<link rel="stylesheet" href="dist/termalize.min.css">
 ```
 
 modern-normalize is bundled into `dist/`, so one stylesheet is all you need.
@@ -27,7 +27,7 @@ html {
 
 ### Light and dark
 
-By default cathode.css follows the OS setting (`color-scheme: light dark`):
+By default termalize.css follows the OS setting (`color-scheme: light dark`):
 green-on-black in dark mode, dark green on paper in light mode.
 Use `light-dark()` to set your own pair, or pin one scheme with `color-scheme`:
 
@@ -76,7 +76,7 @@ Other custom properties:
 
 ```sh
 npm install
-npm run build   # src/cathode.css + modern-normalize -> dist/
+npm run build   # src/termalize.css + modern-normalize -> dist/
 ```
 
 Open `index.html` for a demo.
