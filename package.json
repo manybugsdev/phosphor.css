@@ -1,5 +1,5 @@
 {
-  "name": "termalize.css",
+  "name": "@manybugsdev/termalize.css",
   "version": "0.1.0",
   "description": "Classless retro phosphor-terminal CSS built on modern-normalize",
   "license": "MIT",
@@ -31,5 +31,9 @@
     "url": "https://github.com/manybugsdev/termalize.css/issues"
   },
   "unpkg": "dist/termalize.min.css",
-  "jsdelivr": "dist/termalize.min.css"
+  "jsdelivr": "dist/termalize.min.css",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
 }

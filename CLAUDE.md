@@ -16,6 +16,7 @@ termalize.css is a classless CSS library: it styles plain semantic HTML elements
 ## Releases
 
 - Versions are managed by release-please (`.github/workflows/release.yml`). Never bump `version` in `package.json`, edit `CHANGELOG.md`, or change the CDN version in `README.md` by hand.
+- The npm package is scoped as `@manybugsdev/termalize.css` (npm rejected the unscoped name as too similar to normalize.css).
 - Merging the release PR tags the release and publishes to npm via trusted publishing; jsDelivr/unpkg serve it from npm.
 - The demo is deployed to GitHub Pages by `.github/workflows/pages.yml` on every push to `main`.
 

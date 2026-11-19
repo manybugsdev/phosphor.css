@@ -11,14 +11,14 @@ Add one line to your `<head>`:
 
 <!-- x-release-please-start-version -->
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/termalize.css@0.1.0/dist/termalize.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@manybugsdev/termalize.css@0.1.0/dist/termalize.min.css">
 ```
 <!-- x-release-please-end -->
 
 Or install from npm:
 
 ```sh
-npm install termalize.css
+npm install @manybugsdev/termalize.css
 ```
 
 modern-normalize is bundled into `dist/`, so one stylesheet is all you need.

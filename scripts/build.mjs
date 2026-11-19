@@ -8,7 +8,8 @@ const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url
 const normalize = await readFile(require.resolve('modern-normalize/modern-normalize.css'), 'utf8');
 const theme = await readFile(new URL('../src/termalize.css', import.meta.url), 'utf8');
 
-const banner = `/*! ${pkg.name} v${pkg.version} | MIT License */\n\n`;
+const name = pkg.name.replace(/^@[^/]+\//, ''); // drop the npm scope
+const banner = `/*! ${name} v${pkg.version} | MIT License */\n\n`;
 const css = banner + normalize.trim() + '\n\n' + theme.trim() + '\n';
 
 const minified =
