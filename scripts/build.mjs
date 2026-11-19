@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
 
 const normalize = await readFile(require.resolve('modern-normalize/modern-normalize.css'), 'utf8');
-const theme = await readFile(new URL('../src/phosphor.css', import.meta.url), 'utf8');
+const theme = await readFile(new URL('../src/cathode.css', import.meta.url), 'utf8');
 
 const banner = `/*! ${pkg.name} v${pkg.version} | MIT License */\n\n`;
 const css = banner + normalize.trim() + '\n\n' + theme.trim() + '\n';
@@ -24,8 +24,8 @@ const minified =
 	'\n';
 
 await mkdir(new URL('../dist/', import.meta.url), { recursive: true });
-await writeFile(new URL('../dist/phosphor.css', import.meta.url), css);
-await writeFile(new URL('../dist/phosphor.min.css', import.meta.url), minified);
+await writeFile(new URL('../dist/cathode.css', import.meta.url), css);
+await writeFile(new URL('../dist/cathode.min.css', import.meta.url), minified);
 
-console.log(`dist/phosphor.css      ${css.length} bytes`);
-console.log(`dist/phosphor.min.css  ${minified.length} bytes`);
+console.log(`dist/cathode.css      ${css.length} bytes`);
+console.log(`dist/cathode.min.css  ${minified.length} bytes`);

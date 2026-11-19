@@ -1,11 +1,11 @@
 {
-  "name": "phosphor.css",
+  "name": "cathode.css",
   "version": "0.1.0",
   "description": "Classless retro phosphor-terminal CSS built on modern-normalize",
   "license": "MIT",
   "type": "module",
-  "main": "dist/phosphor.css",
-  "style": "dist/phosphor.css",
+  "main": "dist/cathode.css",
+  "style": "dist/cathode.css",
   "files": [
     "dist"
   ],
@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manybugsdev/phosphor.css.git"
+    "url": "git+https://github.com/manybugsdev/cathode.css.git"
   },
-  "homepage": "https://manybugsdev.github.io/phosphor.css/",
+  "homepage": "https://manybugsdev.github.io/cathode.css/",
   "bugs": {
-    "url": "https://github.com/manybugsdev/phosphor.css/issues"
+    "url": "https://github.com/manybugsdev/cathode.css/issues"
   },
-  "unpkg": "dist/phosphor.min.css",
-  "jsdelivr": "dist/phosphor.min.css"
+  "unpkg": "dist/cathode.min.css",
+  "jsdelivr": "dist/cathode.min.css"
 }
