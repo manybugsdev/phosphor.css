@@ -15,4 +15,5 @@ termalize.css is a classless CSS library: it styles plain semantic HTML elements
 
 ## Commits
 
+- Write commit messages in [Conventional Commits](https://www.conventionalcommits.org/) format: `type(scope): summary` (e.g. `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`). Mark breaking changes with `!` and a `BREAKING CHANGE:` footer.
 - Author and committer must be the repository owner: `manybugsdev <133523181+manybugsdev@users.noreply.github.com>`. Never use a personal email.
