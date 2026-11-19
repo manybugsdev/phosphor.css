@@ -33,7 +33,6 @@
   "unpkg": "dist/termalize.min.css",
   "jsdelivr": "dist/termalize.min.css",
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }

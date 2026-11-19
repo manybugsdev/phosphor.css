@@ -58,4 +58,4 @@ jobs:
       - run: npm install -g npm@latest # trusted publishing needs npm >= 11.5.1
       - run: npm ci
       - run: npm run build
-      - run: npm publish
+      - run: npm publish --provenance
